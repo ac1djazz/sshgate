@@ -11,5 +11,6 @@ break
 done
 server_choice=$(cat server.list| grep $OS | awk '{print $2}')
 login_choice=$(cat server.list | grep $OS | awk '{print $3}') 
+port_choice=$(cat server.list | grep $OS | awk '{print $4}')
 echo "You used" $login_choice
-ssh -l $login_choice $server_choice 
+ssh -l $login_choice -p $port_choice $server_choice 
